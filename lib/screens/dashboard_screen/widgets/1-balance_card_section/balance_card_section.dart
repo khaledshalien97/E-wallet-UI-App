@@ -8,7 +8,10 @@ class BalanceCardSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [BalanceCardContainer(), Spacer(), AddNewCardContainer()],
+      
+      children: [Expanded(
+        flex: 14,
+        child: BalanceCardContainer()), Spacer(), AddNewCardContainer()],
     );
   }
 }

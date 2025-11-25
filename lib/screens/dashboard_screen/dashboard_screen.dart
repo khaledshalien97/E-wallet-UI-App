@@ -3,7 +3,6 @@ import 'package:e_wallet_app/screens/dashboard_screen/widgets/2-action_card_sect
 import 'package:e_wallet_app/screens/dashboard_screen/widgets/3-quick_transaction_section/quick_transaction_section.dart';
 import 'package:e_wallet_app/screens/dashboard_screen/widgets/4-recent_activity_section/recent_activity_section.dart';
 import 'package:e_wallet_app/screens/dashboard_screen/widgets/appbar_dashboard.dart';
-import 'package:e_wallet_app/screens/transfer_completed_screen/transfer_completed_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -19,17 +18,6 @@ class DashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TransferCompletedScreen(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.add),
-            ),
             BalanceCardSection(),
             ActionCardSection(),
             QuickTransactionSection(),

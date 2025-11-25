@@ -1,7 +1,6 @@
 import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class OtherNominal extends StatelessWidget {
   const OtherNominal({super.key});
@@ -22,12 +21,11 @@ class OtherNominal extends StatelessWidget {
       children: [
         commonTextWidget(
           text: "Other nominal",
-          googleFonts: GoogleFonts.poppins,
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: AppTheme.mediumGray,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 24),
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -46,7 +44,8 @@ class OtherNominal extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 border: BoxBorder.all(color: AppTheme.boarderColor),
               ),
-              child: Center(child: Text(amounts[index])),
+              child: Center(child: commonTextWidget(text:amounts[index],fontSize: 14,fontWeight: FontWeight.w400 )),
+           //   child: Center(child: Text("amounts[index]")),
             );
           },
         ),

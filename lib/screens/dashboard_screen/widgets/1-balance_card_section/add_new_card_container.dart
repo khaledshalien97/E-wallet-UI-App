@@ -18,7 +18,7 @@ class AddNewCardContainer extends StatelessWidget {
         color: AppTheme.mediumGray,
       ),
       child: Container(
-        height: 185,
+        height: 180,
         width: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),

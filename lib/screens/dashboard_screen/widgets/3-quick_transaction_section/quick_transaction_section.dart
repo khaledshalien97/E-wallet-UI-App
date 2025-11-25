@@ -1,10 +1,10 @@
 import 'package:e_wallet_app/model/quick_transaction_model.dart';
-import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
+import 'package:e_wallet_app/screens/common_widgets/common_text_widget_clash_font.dart';
 import 'package:e_wallet_app/screens/dashboard_screen/widgets/3-quick_transaction_section/ass_all_circle.dart';
 import 'package:e_wallet_app/screens/dashboard_screen/widgets/3-quick_transaction_section/user_item_circle.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class QuickTransactionSection extends StatelessWidget {
   const QuickTransactionSection({super.key});
@@ -14,12 +14,10 @@ class QuickTransactionSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 30),
-        commonTextWidget(
+    
+        commonTextWidgetClashFont(
           text: "Quick Transaction",
-          googleFonts: GoogleFonts.montserrat,
           fontSize: 18,
-          fontWeight: FontWeight.w500,
           color: AppTheme.textWhite,
         ),
         SizedBox(height: 10),

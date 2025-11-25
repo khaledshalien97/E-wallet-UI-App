@@ -27,12 +27,11 @@ class CommonTextFieldWidget extends StatelessWidget {
       children: [
         commonTextWidget(
           text: label,
-          googleFonts: GoogleFonts.poppins,
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: AppTheme.mediumGray,
         ),
-        SizedBox(height: 15),
+        SizedBox(height: 10),
         SizedBox(
           child: TextField(
             maxLines: maxLines,

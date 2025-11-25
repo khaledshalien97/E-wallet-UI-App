@@ -1,11 +1,8 @@
-import 'package:e_wallet_app/model/transaction_history_model.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_app_bar.dart';
-import 'package:e_wallet_app/screens/common_widgets/common_list_tile_widget.dart';
-import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
-import 'package:e_wallet_app/theme/app_theme.dart';
+import 'package:e_wallet_app/screens/report_screen/widgets/balance_and_monthly.dart';
+import 'package:e_wallet_app/screens/report_screen/widgets/transaction_history.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ReportScreen extends StatefulWidget {
   const ReportScreen({super.key});
@@ -15,8 +12,8 @@ class ReportScreen extends StatefulWidget {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
-  final List<double> values = [10, 18, 22, 20, 28, 23, 14]; // Jan..Jul
-  int touchedIndex = 4; // highlight "Mei" by default
+  final List<double> values = [10, 18, 22, 20, 28, 23, 14];
+  int touchedIndex = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -25,108 +22,23 @@ class _ReportScreenState extends State<ReportScreen> {
         title: "Report",
         viewleading: true,
         viewAction: false,
-
         onPressed: () {
           Navigator.pop(context);
         },
       ),
-
       body: SingleChildScrollView(
         padding: EdgeInsetsGeometry.fromLTRB(15, 40, 15, 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // ===== Balance + Monthly =====
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    commonTextWidget(
-                      text: "Balance",
-                      googleFonts: GoogleFonts.poppins,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppTheme.mediumGray,
-                    ),
-                    SizedBox(height: 6),
-                    commonTextWidget(
-                      text: "\$34,378,44",
-                      googleFonts: GoogleFonts.montserrat,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w500,
-                      color: AppTheme.textWhite,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    commonTextWidget(
-                      text: "Monthly",
-                      googleFonts: GoogleFonts.poppins,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppTheme.mediumGray,
-                    ),
-
-                    SizedBox(width: 4),
-                    Icon(Icons.keyboard_arrow_down, color: Colors.white70),
-                  ],
-                ),
-              ],
-            ),
-
+            balanceAndMonthly(),
             const SizedBox(height: 30),
-
             // ===== Chart =====
             SizedBox(height: 270, child: LineChart(_chartData())),
-            const SizedBox(height: 30),
+            const SizedBox(height: 40),
             // ===== Transaction History =====
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                commonTextWidget(
-                  text: "Transaction History",
-                  googleFonts: GoogleFonts.montserrat,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: AppTheme.textWhite,
-                ),
-                Row(
-                  children: [
-                    commonTextWidget(
-                      text: "Monthly",
-                      googleFonts: GoogleFonts.poppins,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppTheme.mediumGray,
-                    ),
-
-                    SizedBox(width: 4),
-                    Icon(Icons.keyboard_arrow_down, color: Colors.white70),
-                  ],
-                ),
-              ],
-            ),
-
-            SizedBox(
-              height: 300,
-              child: ListView.builder(
-                itemCount: TransactionHistoryDataModel.transactionData.length,
-                itemBuilder: (context, index) {
-                  var data = TransactionHistoryDataModel.transactionData[index];
-                  return commonListTileWidget(
-                    index: index,
-                    title: data.name,
-                    subTitle: data.date,
-                    trailing: data.amount,
-                  );
-                  ;
-                },
-              ),
-            ),
+            transactionHistory(),
           ],
         ),
       ),
@@ -135,7 +47,6 @@ class _ReportScreenState extends State<ReportScreen> {
 
   LineChartData _chartData() {
     final green = const Color(0xff21D07A);
-
     final spots = List.generate(
       values.length,
       (i) => FlSpot(i.toDouble(), values[i]),
@@ -164,9 +75,6 @@ class _ReportScreenState extends State<ReportScreen> {
               const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul"];
               if (i < 0 || i >= months.length) return const SizedBox.shrink();
 
-              // Hide Feb to match screenshot spacing vibe
-              if (months[i] == "Feb") return const SizedBox.shrink();
-
               return Text(
                 months[i],
                 style: const TextStyle(color: Colors.white70, fontSize: 12),
@@ -178,14 +86,12 @@ class _ReportScreenState extends State<ReportScreen> {
 
       lineTouchData: LineTouchData(
         handleBuiltInTouches: true,
-
         touchCallback: (event, response) {
           final spot = response?.lineBarSpots?.first;
           if (spot != null) {
             setState(() => touchedIndex = spot.x.toInt());
           }
         },
-
         touchTooltipData: LineTouchTooltipData(
           tooltipPadding: const EdgeInsets.symmetric(
             horizontal: 10,
@@ -213,11 +119,7 @@ class _ReportScreenState extends State<ReportScreen> {
         getTouchedSpotIndicator: (barData, indexes) {
           return indexes.map((i) {
             return TouchedSpotIndicatorData(
-              FlLine(
-                color: Colors.white24,
-                strokeWidth: 1,
-                dashArray: [4, 6], // dashed vertical line
-              ),
+              FlLine(color: Colors.white24, strokeWidth: 1, dashArray: [4, 6]),
               FlDotData(
                 show: true,
                 getDotPainter: (spot, percent, bar, index) {
@@ -237,11 +139,10 @@ class _ReportScreenState extends State<ReportScreen> {
       lineBarsData: [
         LineChartBarData(
           spots: spots,
-          isCurved: false, // sharp/angular like screenshot
+          isCurved: false,
           barWidth: 2,
           color: green,
           dotData: FlDotData(show: false),
-
           belowBarData: BarAreaData(
             show: true,
             gradient: LinearGradient(

@@ -22,7 +22,7 @@ class TopUpScreen extends StatelessWidget {
       ),
 
       body: SingleChildScrollView(
-        padding: EdgeInsetsGeometry.fromLTRB(15, 40, 15, 5),
+        padding: EdgeInsetsGeometry.fromLTRB(15, 20, 15, 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -34,7 +34,7 @@ class TopUpScreen extends StatelessWidget {
               suffixIcon: SvgPicture.asset("asset/svg_images/chevron-left.svg"),
               viewprefixIcon: true,
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 13),
             CommonTextFieldWidget(
               label: "ID account",
               hint: "3225-4385",
@@ -42,7 +42,7 @@ class TopUpScreen extends StatelessWidget {
               suffixIcon: SvgPicture.asset("asset/svg_images/check.svg"),
               viewprefixIcon: false,
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 24),
             CommonTextFieldWidget(
               label: "How much do you wan to top up?",
               hint: "\$ 5.00",
@@ -50,10 +50,10 @@ class TopUpScreen extends StatelessWidget {
               suffixIcon: SvgPicture.asset("asset/svg_images/check.svg"),
               viewprefixIcon: false,
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 29),
 
             OtherNominal(),
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

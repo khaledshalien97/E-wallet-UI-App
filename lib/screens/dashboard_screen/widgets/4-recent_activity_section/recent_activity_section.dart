@@ -1,13 +1,12 @@
 import 'package:e_wallet_app/model/recent_activity_model.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_list_tile_widget.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
+import 'package:e_wallet_app/screens/common_widgets/common_text_widget_clash_font.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RecentActivitySection extends StatelessWidget {
   const RecentActivitySection({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +16,15 @@ class RecentActivitySection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            commonTextWidget(
+            commonTextWidgetClashFont(
               text: "Recent Activity",
-              googleFonts: GoogleFonts.montserrat,
               fontSize: 18,
-              fontWeight: FontWeight.w500,
               color: AppTheme.textWhite,
             ),
             Row(
               children: [
                 commonTextWidget(
                   text: "3 Days",
-                  googleFonts: GoogleFonts.poppins,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: AppTheme.mediumGray,

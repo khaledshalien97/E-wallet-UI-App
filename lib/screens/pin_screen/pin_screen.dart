@@ -1,11 +1,9 @@
 import 'dart:ui';
-
 import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
 import 'package:e_wallet_app/screens/common_widgets/key_button.dart';
 import 'package:e_wallet_app/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PinScreen extends StatefulWidget {
   const PinScreen({super.key});
@@ -62,12 +60,11 @@ class _PinScreenState extends State<PinScreen> {
                 children: [
                   commonTextWidget(
                     text: "Enter Your Pin",
-                    googleFonts: GoogleFonts.poppins,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                     color: AppTheme.mediumGray,
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
 
                   // PIN (hidden as stars)
                   SizedBox(
@@ -80,6 +77,7 @@ class _PinScreenState extends State<PinScreen> {
                         color: Colors.white,
                         fontSize: 30,
                         letterSpacing: 8,
+                        fontFamily: "ClashDisplay"
                       ),
                       maxLength: 6,
                       obscureText: !_showPin,
@@ -90,9 +88,7 @@ class _PinScreenState extends State<PinScreen> {
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 24),
-
                   OutlinedButton(
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
@@ -138,7 +134,6 @@ class _PinScreenState extends State<PinScreen> {
                     },
                     child: commonTextWidget(
                       text: "Forget Pin?",
-                      googleFonts: GoogleFonts.poppins,
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                       color: AppTheme.primaryGreen,

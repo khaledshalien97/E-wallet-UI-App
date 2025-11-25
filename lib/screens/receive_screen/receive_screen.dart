@@ -1,6 +1,7 @@
 import 'package:e_wallet_app/model/receive_model.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_app_bar.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_list_tile_widget.dart';
+import 'package:e_wallet_app/screens/common_widgets/common_text_widget_clash_font.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scrollable_list_tab_scroller/scrollable_list_tab_scroller.dart';
@@ -35,7 +36,7 @@ class _ReceiveScreenState extends State<ReceiveScreen> {
         child: ScrollableListTabScroller(
           itemCount: dummySections.length,
 
-          /// ----- The Tabs -----
+       
           tabBuilder: (context, index, isActive) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
@@ -66,20 +67,15 @@ class _MonthSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            section.title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-            ),
+          commonTextWidgetClashFont(
+            text: section.title,
+            fontSize: 18,
           ),
           const SizedBox(height: 24),
-
           ...section.items.map(
             (item) => commonListTileWidget(
               index: 0,

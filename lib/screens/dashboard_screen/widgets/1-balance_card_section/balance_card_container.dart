@@ -1,7 +1,7 @@
 import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
+import 'package:e_wallet_app/screens/common_widgets/common_text_widget_clash_font.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class BalanceCardContainer extends StatelessWidget {
   const BalanceCardContainer({
@@ -38,16 +38,13 @@ class BalanceCardContainer extends StatelessWidget {
             children: [
               commonTextWidget(
                 text: "Balance",
-                googleFonts: GoogleFonts.poppins,
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: AppTheme.textWhite,
               ),
-              commonTextWidget(
+              commonTextWidgetClashFont(
                 text: "\$ 34,378,44",
-                googleFonts: GoogleFonts.montserrat,
                 fontSize: 26,
-                fontWeight: FontWeight.bold,
                 color: AppTheme.textWhite,
               ),
             ],
@@ -60,14 +57,12 @@ class BalanceCardContainer extends StatelessWidget {
                 children: [
                   commonTextWidget(
                     text: "Number",
-                    googleFonts: GoogleFonts.poppins,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: AppTheme.textWhite,
                   ),
                   commonTextWidget(
                     text: "3554 7634 2647 0237",
-                    googleFonts: GoogleFonts.poppins,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: AppTheme.textWhite,
@@ -79,14 +74,12 @@ class BalanceCardContainer extends StatelessWidget {
                 children: [
                   commonTextWidget(
                     text: "Exp",
-                    googleFonts: GoogleFonts.poppins,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: AppTheme.textWhite,
                   ),
                   commonTextWidget(
                     text: "24/26",
-                    googleFonts: GoogleFonts.poppins,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: AppTheme.textWhite,

@@ -4,7 +4,6 @@ import 'package:e_wallet_app/screens/report_screen/report_screen.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SeeAllCircle extends StatelessWidget {
   const SeeAllCircle({super.key});
@@ -41,7 +40,6 @@ class SeeAllCircle extends StatelessWidget {
         SizedBox(height: 7),
         commonTextWidget(
           text: "See All",
-          googleFonts: GoogleFonts.poppins,
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: AppTheme.mediumGray,

@@ -1,10 +1,10 @@
 import 'package:e_wallet_app/screens/common_widgets/common_app_bar.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_button_widget.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
+import 'package:e_wallet_app/screens/common_widgets/common_text_widget_clash_font.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TransferCompletedScreen extends StatelessWidget {
   const TransferCompletedScreen({super.key});
@@ -15,34 +15,35 @@ class TransferCompletedScreen extends StatelessWidget {
       appBar: commonAppBar(
         title: "Transfer Completed",
         viewleading: false,
-         viewAction: false,
+        viewAction: false,
         onPressed: () {},
       ),
 
       body: SingleChildScrollView(
+       // padding: EdgeInsets.only(bottom: 10),
         child: Column(
           children: [
-            SvgPicture.asset("asset/svg_images/success.svg"),
-            SizedBox(height: 15),
-            commonTextWidget(
+            // logo Success
+            SizedBox(
+              width: 280,
+              height: 280,
+              child: SvgPicture.asset("asset/svg_images/success.svg")),
+            SizedBox(height: 32),
+            commonTextWidgetClashFont(
               text: "Transfer Successful",
-              googleFonts: GoogleFonts.montserrat,
               fontSize: 18,
-              fontWeight: FontWeight.w500,
               color: AppTheme.textWhite,
             ),
-            SizedBox(height: 20),
-            commonTextWidget(
+            SizedBox(height: 16),
+            commonTextWidgetClashFont(
               text: "\$24,734.00",
-              googleFonts: GoogleFonts.montserrat,
               fontSize: 36,
-              fontWeight: FontWeight.w500,
               color: AppTheme.primaryGreen,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 24),
+            // transfer Message
             SizedBox(
-              width: 240,
-
+              width: 300,
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
@@ -64,7 +65,7 @@ class TransferCompletedScreen extends StatelessWidget {
                       style: TextStyle(color: AppTheme.mediumGray),
                     ),
                     TextSpan(
-                      text: "Khaled Shalien",
+                      text: "Khaled Shalien ",
                       style: TextStyle(color: AppTheme.textWhite),
                     ),
                     TextSpan(
@@ -75,35 +76,33 @@ class TransferCompletedScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-
               children: [
                 SvgPicture.asset("asset/svg_images/Arrow_Down_Square.svg"),
                 SizedBox(width: 10),
                 commonTextWidget(
                   text: "Download Struk",
-                  googleFonts: GoogleFonts.poppins,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: AppTheme.textWhite,
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 65),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
-                child: commonButtonWidget(context, "Done", () {}),
+                padding: const EdgeInsets.fromLTRB(20, 30, 20, 24),
+                child: commonButtonWidget(context, "Done", () {
+                  Navigator.pop(context);
+                }),
               ),
             ),
-            commonTextWidget(
+            commonTextWidgetClashFont(
               text: "Do you want to make another transfer?",
-              googleFonts: GoogleFonts.montserrat,
               fontSize: 14,
-              fontWeight: FontWeight.w400,
               color: AppTheme.primaryGreen,
             ),
           ],

@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-Widget commonTextWidget({
+Widget commonTextWidgetClashFont({
   String? text,
   double? fontSize,
   Color? color,
-  FontWeight? fontWeight,
 }) {
   return Text(
     text!,
-    style: GoogleFonts.poppins(
+    style: TextStyle(
+      fontFamily: 'ClashDisplay',
       fontSize: fontSize,
       color: color,
-      fontWeight: fontWeight,
     ),
   );
 }

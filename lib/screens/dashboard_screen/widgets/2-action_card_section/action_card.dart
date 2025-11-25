@@ -2,7 +2,6 @@ import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ActionCard extends StatelessWidget {
   const ActionCard({
@@ -32,7 +31,7 @@ class ActionCard extends StatelessWidget {
             const SizedBox(width: 8),
             commonTextWidget(
               text: title,
-              googleFonts: GoogleFonts.poppins,
+             // googleFonts: GoogleFonts.poppins,
               fontSize: 14,
               fontWeight: FontWeight.w400,
               color: AppTheme.textWhite,

@@ -1,12 +1,11 @@
 import 'dart:ui';
-
 import 'package:e_wallet_app/screens/common_widgets/common_button_widget.dart';
 import 'package:e_wallet_app/screens/common_widgets/common_text_widget.dart';
+import 'package:e_wallet_app/screens/common_widgets/common_text_widget_clash_font.dart';
 import 'package:e_wallet_app/screens/pin_screen/pin_screen.dart';
 import 'package:e_wallet_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -72,33 +71,30 @@ class OnBoardingScreen extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               children: [
-                commonTextWidget(
+                commonTextWidgetClashFont(
                   text: "Fast and easy payment solution",
-                  googleFonts: GoogleFonts.montserrat,
                   fontSize: 36,
-                  fontWeight: FontWeight.w500,
                   color: AppTheme.textWhite,
                 ),
-                SizedBox(height: 20),
-
+                SizedBox(height: 16),
                 commonTextWidget(
                   text:
                       "Spending methods and financial management through digital banks",
-                  googleFonts: GoogleFonts.poppins,
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.w400,
                   color: AppTheme.mediumGray,
                 ),
+                
               ],
             ),
           ),
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 30),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 30),
         child: commonButtonWidget(context, "Get Started", () {
           Navigator.push(
             context,
