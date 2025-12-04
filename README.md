@@ -1,16 +1,10 @@
 # e_wallet_app
 
-A new Flutter project.
+This app offers a fast and secure digital banking experience with a clean, modern interface. Users can easily check balances, manage cards, transfer funds, and track activity in one place. Smooth navigation, strong privacy, and secure authentication ensure reliable financial control. From PIN and biometric login to analytics and transaction history, every feature is built for smarter daily banking. Whether transferring money, topping up, scanning, or reviewing spending trends, the app delivers a complete and intuitive digital wallet for modern users
 
-## Getting Started
+## Cover Photo
 
-This project is a starting point for a Flutter application.
+<p float="center">
+  <img src="asset/cover_img/cover_wallet.png"/>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+</p>
